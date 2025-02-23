@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { motion } from "motion/react";
 import { Mail, Lock, Eye, EyeOff } from "lucide-react";
 import { Button } from "@mantine/core";
+import { Link } from "react-router-dom";
 
 function Login() {
   const [isEyeClick, setisEyeClick] = useState(false);
@@ -19,7 +20,7 @@ function Login() {
         <h1 className="text-center text-2xl font-bold mb-4">WELCOME BACK</h1>
         <form className="space-y-6 w-full">
           <div className="flex gap-2 border-b  border-b-gray-400">
-            <Mail className="text-gray-500" />
+            <Mail className="text-gray-500 " size={20} />
             <input
               className="focus:outline-none w-full "
               type="email"
@@ -27,7 +28,7 @@ function Login() {
             />
           </div>
           <div className="flex gap-2 border-b border-gray-400 relative">
-            <Lock className="text-gray-500 top-2 left-2" />
+            <Lock className="text-gray-500 " size={20} />
 
             <div onClick={handleEyeClick} className="absolute right-2">
               {isEyeClick ? <Eye /> : <EyeOff />}
@@ -38,7 +39,12 @@ function Login() {
               placeholder="Enter Password...."
             />
           </div>
-          <Button variant="filled">login</Button>
+
+          <Button fullWidth>login</Button>
+
+          <p className="text-center text-gray-800">
+            Dont't have account?<Link to="/Register" className="text-sky-500">Register</Link>
+          </p>
         </form>
       </motion.div>
     </div>

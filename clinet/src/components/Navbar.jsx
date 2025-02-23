@@ -23,17 +23,27 @@ function Navbar() {
 
         <ul className="hidden md:flex gap-4">
           {["Home", "Categories", "Challels", "About"].map((item) => (
-            <li key={item}>
+            <motion.li
+              whileHover={{ scale: 1.1 }}
+              transition={{ type: "spring", stiffness: 100 }}
+              key={item}
+              className="hover:text-gray-700"
+            >
               <Link to={`/${item.toLocaleLowerCase()}`}> {item} </Link>
-            </li>
+            </motion.li>
           ))}
         </ul>
         <div className="flex space-x-4 items-center justify-center">
           <Link to={"/Login"} className="hidden md:block">
-            <Button variant="light">Login</Button>
+            <Button variant="white" size="xs">
+              Login
+            </Button>
           </Link>
           <Link to={"/Register"} className="hidden md:block">
-            <Button variant="light">Register</Button>
+            {""}
+            <Button variant="white" size="xs">
+              Register
+            </Button>
           </Link>
 
           <button onClick={handleclick} className="md:hidden ">
@@ -41,6 +51,22 @@ function Navbar() {
           </button>
         </div>
       </div>
+      {isOpen && (
+        <div className="">
+          <ul className="md:hidden flex flex-col gap-4 h-screen items-center">
+            {["Home", "Categories", "Challels", "About"].map((item) => (
+              <motion.li
+                whileHover={{ scale: 1.1 }}
+                transition={{ type: "spring", stiffness: 100 }}
+                key={item}
+                className="hover:text-gray-700"
+              >
+                <Link to={`/${item.toLocaleLowerCase()}`}> {item} </Link>
+              </motion.li>
+            ))}
+          </ul>
+        </div>
+      )}
     </nav>
   );
 }
