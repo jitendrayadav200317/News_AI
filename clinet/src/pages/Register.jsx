@@ -25,7 +25,7 @@ function Login() {
             <input
               className="focus:outline-none w-full "
               type="text"
-              placeholder="Enter Your Name...."
+              placeholder="Full Name"
             />
           </div>
           
@@ -34,7 +34,7 @@ function Login() {
             <input
               className="focus:outline-none w-full "
               type="email"
-              placeholder="Enter Email...."
+              placeholder="Email Address"
             />
           </div>
 
@@ -44,7 +44,7 @@ function Login() {
             <input
               className="focus:outline-none w-full "
               type={isEyeClick ? "Text" : "password"}
-              placeholder="Enter  Password...."
+              placeholder="Password..."
             />
           </div>
 
@@ -58,7 +58,7 @@ function Login() {
             <input
               className="focus:outline-none w-full "
               type={isEyeClick ? "Text" : "password"}
-              placeholder="Enter Confirm Password...."
+              placeholder="Confirm Password..."
             />
           </div>
 
