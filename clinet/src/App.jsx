@@ -1,6 +1,9 @@
-import React from "react";
-import { Routes, Route } from "react-router-dom";
+import React, { useEffect ,useState} from "react";
+import { Routes, Route} from "react-router-dom";
 import "@mantine/core/styles.css";
+import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
+import { Toaster } from "sonner";
 
 
 import Navbar from "./components/Navbar";
@@ -9,13 +12,16 @@ import Register from "./pages/Register";
 import Perferences from "./pages/Preferences";
 
 
+
 function App() {
   return (
     <div>
+      <Toaster />
       <Navbar />
-      <Perferences />
+      
 
       <Routes>
+        <Route path="/" element={<Perferences />} />
         <Route path="/login" element={<Login/>} />
         <Route path="/register" element={<Register/>} />
       </Routes>
