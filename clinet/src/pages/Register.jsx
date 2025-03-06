@@ -21,71 +21,67 @@ const Register = () => {
   };
 
   return (
-    <div className="flex justify-center items-center h-screen bg-gray-100">
+    <div className="flex min-h-screen items-center justify-center bg-gray-100">
       <motion.div
+        className="w-full max-w-md p-8 bg-white shadow-xl rounded-2xl"
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5 }}
-        className="w-full bg-white rounded-xl p-6 shadow-xl  "
       >
-        <h1 className="text-center text-2xl font-bold mb-4">
+        <h2 className="text-2xl font-bold text-gray-800 text-center mb-6">
           Create an Account
-        </h1>
+        </h2>
 
-        <form className="space-y-6 w-full" onSubmit={handleSubmit(onSubmit)}>
-          <div className="flex gap-2 border-b  border-b-gray-400">
-            <User className="text-gray-500 " size={20} />
+        <form className="space-y-6" onSubmit={handleSubmit(onSubmit)}>
+          <div className="relative flex items-center pb-2 border-b border-gray-300">
+            <User className="text-gray-400 mr-2" size={20} />
             <input
-              className="focus:outline-none w-full bg-transparent border-none"
               type="text"
               name="name"
-              required
               placeholder="Full Name"
-              {...register("name")}
+              className="w-full bg-transparent focus:outline-none border-none"
+              {...register('name')}
             />
           </div>
           {errors.name && (
             <p className="text-sm text-red-500">{errors.name.message}</p>
           )}
 
-          <div className="flex gap-2 border-b  border-b-gray-400">
-            <Mail className="text-gray-500 " size={20} />
+          <div className="relative flex items-center pb-2 border-b border-gray-300">
+            <Mail className="text-gray-400 mr-2" size={20} />
             <input
-              className="focus:outline-none w-full bg-transparent border-none"
               type="email"
               name="email"
-              required
               placeholder="Email Address"
-              {...register("email")}
+              {...register('email')}
+              className="w-full bg-transparent focus:outline-none border-none"
             />
           </div>
           {errors.email && (
             <p className="text-sm text-red-500">{errors.email.message}</p>
           )}
 
-          <div className="flex gap-2 border-b border-gray-400 relative">
-            <Lock className="text-gray-500 " size={20} />
+          <div className="relative flex items-center pb-2 border-b border-gray-300">
+            <Lock className="text-gray-400 mr-2" size={20} />
             <input
-              className="focus:outline-none w-full bg-transparent border-none"
-              type= "password"
-              placeholder="Password"
-              required
+              type="password"
               name="password"
-              {...register("password")}
+              placeholder="Password"
+              {...register('password')}
+              className="w-full bg-transparent focus:outline-none border-none"
             />
           </div>
           {errors.password && (
             <p className="text-sm text-red-500">{errors.password.message}</p>
           )}
-
-          <div className="flex gap-2 border-b border-gray-400 relative">
-            <Lock className="text-gray-500 " size={20} />
+          <div className="relative flex items-center pb-2 border-b border-gray-300">
+            <Lock className="text-gray-400 mr-2" size={20} />
             <input
-              className="focus:outline-none w-full bg-transparent border-none"
               type="password"
+              name="confirmPassword"
               placeholder="Confirm Password"
-              name="Confirm Password"
-              {...register("ConfirmPassword")}
+              {...register('confirmPassword')}
+              className="w-full bg-transparent focus:outline-none border-none"
             />
           </div>
           {errors.confirmPassword && (
@@ -99,16 +95,16 @@ const Register = () => {
             fullWidth
             className="w-full bg-gradient-to-r from-blue-500 to-purple-500 text-white font-semibold py-3 rounded-lg shadow-md hover:scale-105 transition-all flex items-center justify-center gap-2"
           >
-            {loading ? <Loader size={16} color="white" /> : "Signup"}
+            {loading ? <Loader size={16} color="white" /> : 'Signup'}
           </Button>
-
-          <p className="text-center text-gray-800">
-            Dont't have account?{" "}
-            <a href="/login" className="text-blue-500 font-medium">
-              Sign In
-            </a>
-          </p>
         </form>
+
+        <p className="text-center text-sm text-gray-600 mt-4">
+          Already have an account?{' '}
+          <a href="/login" className="text-blue-500 font-medium">
+            Sign In
+          </a>
+        </p>
       </motion.div>
     </div>
   );
