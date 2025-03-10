@@ -6,9 +6,11 @@ import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-
+import { useDispatch } from "react-redux";
+import { login } from "../redux/slice/authSlice";
 function Login() {
   const [isEyeClick, setisEyeClick] = useState(false);
+  const dispatch = useDispatch();
 
   const LoginSchema = z.object({
     email: z
@@ -29,7 +31,7 @@ function Login() {
   };
 
   const onSubmit = (data) => {
-    console.log(data);
+    dispatch(login(data));
   };
 
   return (
